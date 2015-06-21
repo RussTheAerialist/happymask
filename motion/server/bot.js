@@ -4,15 +4,15 @@ var five = require('johnny-five'),
 function ready(b, callback) {
 
   var servo1 = five.Servo({
-    pin: process.env.npm_config_servo_1,
+    pin: process.env.npm_config_servo_2 || 9,
     range: [0, 90]
   })
   var servo2 = five.Servo({
-    pin: process.env.npm_config_servo_2,
+    pin: process.env.npm_config_servo_2 || 10,
     range: [0, 90]
   })
   var servo3 = five.Servo({
-    pin: process.env.npm_config_servo_3,
+    pin: process.env.npm_config_servo_3 || 11,
     range: [0, 90]
   })
 

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tap test/**/*.js",
+    "start": "node index.js",
     "lint": "jshint .",
     "validate": "npm ls"
   },
