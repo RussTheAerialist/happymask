@@ -1,0 +1,8 @@
+[
+  { delay: 250, servo: 'a', position: 60 },
+  { delay: 250, servo: 'b', position: 60 },
+  { delay: 250, servo: 'c', position: 60 },
+  { delay: 250, servo: 'a', position: 20 },
+  { delay: 250, servo: 'b', position: 20 },
+  { delay: 250, servo: 'c', position: 20 }
+]
