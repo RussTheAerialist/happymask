@@ -1,32 +1,30 @@
 var tap = require('tap'),
-    app = require('../server/delta')
+    req = require('supertest'),
+    app = require('../server')
 
+tap.test('/board returns a 404 when board is not present', function (t) {
+  app.board = null
+  req(app)
+    .get('/board')
+    .expect(404)
+    .end(function() {
+      t.end()
+    })
 
-function createMock() {
-  return {
-    to: function (angle, speed) {
-      this.to.angle = angle
-      this.to.speed = speed
-      this.to.called = true
-    }
-  }
-}
-
-tap.test('move with no speed uses default speed', function (t) {
-  var mockServo = createMock()
-  var d = new app(mockServo, null, null)
-  d.move('a', 10)
-  t.ok(mockServo.to.called)
-  t.equal(mockServo.to.angle, 10)
-  t.equal(mockServo.to.speed, 100)
 })
 
-tap.test('unknown servo name fails', function (t) {
-  t.plan(1)
-
-  var mockServo = createMock()
-  var d = new app(mockServo, null, null)
-  t.throws(function() {
-    d.move('z')
-  })
+tap.test('/board returns information when the board is present', function (t) {
+  app.board = { success: true}
+  req(app)
+    .get('/board')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .expect(function(res) {
+      t.similar(JSON.parse(res.body), {
+        success: true
+      })      
+    })
+    .end(function() {
+      t.end()
+    })
 })
