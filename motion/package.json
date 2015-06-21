@@ -1,0 +1,28 @@
+{
+  "name": "motion",
+  "version": "1.0.0",
+  "description": "Motion controller for a deltabot",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/**/*.js",
+    "lint": "jshint .",
+    "validate": "npm ls"
+  },
+  "author": "Russell Hay <me@russellhay.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.4",
+    "johnny-five": "^0.8.81",
+    "temporal": "^0.4.0"
+  },
+  "devDependencies": {
+    "precommit-hook": "^3.0.0",
+    "supertest": "^1.0.1",
+    "tap": "^1.2.1"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
+}
