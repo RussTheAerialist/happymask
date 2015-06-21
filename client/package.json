@@ -1,0 +1,40 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "Frontend for a deltabot",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/**/*.js",
+    "lint": "jshint .",
+    "validate": "npm ls"
+  },
+  "author": "Russell Hay <me@russellhay.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.5",
+    "browserify": "^10.2.4",
+    "express": "^4.13.0",
+    "gulp": "^3.9.0",
+    "gulp-bower": "0.0.10",
+    "gulp-concat": "^2.5.2",
+    "gulp-csso": "^1.0.0",
+    "gulp-jade": "^1.0.1",
+    "gulp-livereload": "^3.8.0",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-util": "^3.0.5",
+    "path": "^0.11.14",
+    "precommit-hook": "^3.0.0",
+    "require-dir": "^0.3.0",
+    "tiny-lr": "^0.1.6",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ],
+  "dependencies": {
+    "bower": "^1.4.1",
+    "gulp-sass": "^2.0.1"
+  }
+}

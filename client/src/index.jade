@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    link(rel='stylesheet' href='main.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+  body
+    .container
+      .page-header
+        h1 Happy Mask&nbsp;
+        h4
+          span#board-ready.label.label-warning waiting for robot
+      .row
+        .col-md-12
+          .btn-group
+            button.disabled.btn-primary.btn.btn-lg
+              | preprogrammed motions
+            button.btn.btn-default.btn-lg(type="button", data-url="/programmed/dance")
+              | dance
+            button.btn.btn-default.btn-lg(type="button", data-url="/programmed/shake")
+              | shake no
+            button.btn.btn-default.btn-lg(type="button", data-url="/programmed/nod")
+              | nod yes
+            button.btn.btn-default.btn-lg(type="button", data-url="/programmed/circles")
+              | circle
+          div &nbsp;
+          .btn-group
+            button.disabled.btn-info.btn.btn-lg
+              | locations
+            button.btn.btn-default.btn-lg(type="button" data-url="/go/home")
+              i.fa.fa-home
+            button.btn.btn-default.btn-lg(type="button" data-url="/go/extend")
+              i.fa.fa-arrows
+          .btn-group.col-md-offset-1
+            button.disabled.btn-success.btn.btn-lg
+              | X
+            button.btn.btn-default.btn-lg(type="button" data-url="/x++")
+              i.fa.fa-plus
+            button.btn.btn-default.btn-lg(type="button" data-url="/x--")
+              i.fa.fa-minus
+          .btn-group.col-md-offset-1
+            button.disabled.btn-warning.btn.btn-lg
+              | Y
+            button.btn.btn-default.btn-lg(type="button" data-url="/y++")
+              i.fa.fa-plus
+            button.btn.btn-default.btn-lg(type="button" data-url="/y--")
+              i.fa.fa-minus
+          .btn-group.col-md-offset-1
+            button.disabled.btn-danger.btn.btn-lg
+              | Z
+            button.btn.btn-default.btn-lg(type="button" data-url="/z++")
+              i.fa.fa-plus
+            button.btn.btn-default.btn-lg(type="button" data-url="/z--")
+              i.fa.fa-minus
+      div &nbsp;
+      .row
+        .col-md-12
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title
+                i.fa.fa-file-text
+                |  bot log
+            #log.panel-body
