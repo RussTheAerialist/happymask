@@ -13,15 +13,18 @@ function DeltaKinematics(a, b, c) {
   this.a = a
   this.b = b
   this.c = c
+  this.lastPosition = { x: -1, y: -1, z: -1 }
+  this.to(0, 0, -150)
 }
 
 DeltaKinematics.prototype.move = function (servoName, angle, speed) {
-  speed = speed || process.env.npm_config_default_servo_speed || 100
+  speed = speed || process.env.npm_config_default_servo_speed || 200
   var servo = this[servoName]
   if (!servo) {
     throw 'unknown servo ' + servoName
   }
 
+  console.log(servoName + ' to ' + angle)
   servo.to(angle, speed)
 }
 
@@ -48,6 +51,7 @@ DeltaKinematics.prototype.calculateAngleYZ = function (x0, y0, z0) {
 }
 
 DeltaKinematics.prototype.IK = function (x0, y0, z0) {
+  z0 = Math.min(z0, -150)
   var theta1 = 0,
       theta2 = 0,
       theta3 = 0,
@@ -72,11 +76,17 @@ DeltaKinematics.prototype.IK = function (x0, y0, z0) {
 }
 
 DeltaKinematics.prototype.to = function (x, y, z, speed) {
-  speed = speed || 100
+  speed = speed || 200
   var angles = this.IK(x, y, z)
   if (angles[0] !== 0) {
     throw 'invalid position'
   }
+
+  console.log(angles)
+
+  this.lastPosition.x = x
+  this.lastPosition.y = y
+  this.lastPosition.z = z
 
   this.move('a', angles[1], speed)
   this.move('b', angles[2], speed)
