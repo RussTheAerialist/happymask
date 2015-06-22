@@ -3,6 +3,7 @@ html
   head
     link(rel='stylesheet' href='main.css')
     meta(name='viewport' content='width=device-width, initial-scale=1')
+    script(src='bundle.js')
   body
     .container
       .page-header
@@ -20,7 +21,7 @@ html
               | shake no
             button.btn.btn-default.btn-lg(type="button", data-url="/programmed/nod")
               | nod yes
-            button.btn.btn-default.btn-lg(type="button", data-url="/programmed/circles")
+            button.btn.btn-default.btn-lg(type="button", data-url="/programmed/circle")
               | circle
           div &nbsp;
           .btn-group
@@ -33,23 +34,23 @@ html
           .btn-group.col-md-offset-1
             button.disabled.btn-success.btn.btn-lg
               | X
-            button.btn.btn-default.btn-lg(type="button" data-url="/x++")
+            button.btn.btn-default.btn-lg(type="button" data-url="/inc/x")
               i.fa.fa-plus
-            button.btn.btn-default.btn-lg(type="button" data-url="/x--")
+            button.btn.btn-default.btn-lg(type="button" data-url="/dec/x")
               i.fa.fa-minus
           .btn-group.col-md-offset-1
             button.disabled.btn-warning.btn.btn-lg
               | Y
-            button.btn.btn-default.btn-lg(type="button" data-url="/y++")
+            button.btn.btn-default.btn-lg(type="button" data-url="/inc/y")
               i.fa.fa-plus
-            button.btn.btn-default.btn-lg(type="button" data-url="/y--")
+            button.btn.btn-default.btn-lg(type="button" data-url="/dec/y")
               i.fa.fa-minus
           .btn-group.col-md-offset-1
             button.disabled.btn-danger.btn.btn-lg
               | Z
-            button.btn.btn-default.btn-lg(type="button" data-url="/z++")
+            button.btn.btn-default.btn-lg(type="button" data-url="/inc/z")
               i.fa.fa-plus
-            button.btn.btn-default.btn-lg(type="button" data-url="/z--")
+            button.btn.btn-default.btn-lg(type="button" data-url="/dec/z")
               i.fa.fa-minus
       div &nbsp;
       .row

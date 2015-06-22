@@ -65,4 +65,10 @@ Controller.prototype.savedPosition = function (name) {
 	}
 
 	this.delta.to(position.x, position.y, position.z)
+	return {
+		message: 'moved to ' + name,
+		x: position.x,
+		y: position.y,
+		z: position.z
+	}
 }

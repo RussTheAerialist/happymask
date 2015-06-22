@@ -1,10 +1,11 @@
 var five = require('johnny-five'),
-    delta = require('./delta')
+    delta = require('./delta'),
+    botController = require('./controller')
 
 function ready(b, callback) {
 
   var servo1 = five.Servo({
-    pin: process.env.npm_config_servo_2 || 9,
+    pin: process.env.npm_config_servo_1 || 9,
     range: [0, 90]
   })
   var servo2 = five.Servo({
@@ -16,7 +17,8 @@ function ready(b, callback) {
     range: [0, 90]
   })
 
-  callback(b, new delta(servo1, servo2, servo3))
+  var controller = new botController(new delta(servo1, servo2, servo3))
+  callback(b, controller)
 }
 
 module.exports = function (callback) {
