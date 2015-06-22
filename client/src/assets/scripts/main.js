@@ -15,11 +15,11 @@ $(document).ready(function() {
 		    url = target.data('url')
 		$.getJSON(url, function(data) {
 			if (!data.success) {
-				log('Error: ' + JSON.stringify(data))
+				log(data)
 			}
 			console.log(Object.keys(data))
 			if (Object.keys(data).length > 1) {
-				log(JSON.stringify(data))
+				log(data)
 			}
 		}).fail(function() {
 			log('failed to send: ' + url)
